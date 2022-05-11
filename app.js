@@ -28,7 +28,8 @@ app.get('/sobre', (req, res) => {
 
 app.get('/coberturas', (req, res) => {
     res.render('coberturas', {
-        title: 'Coberturas'
+        title: 'Coberturas',
+        layout: 'mainWithoutSideBar'
     });
 });
 
