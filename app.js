@@ -9,6 +9,7 @@ app.engine('handlebars', handlebars.engine({defaultLayout: 'main', runtimeOption
     allowProtoMethodsByDefault: true
 }}));
 app.set('view engine', 'handlebars');
+app.use(express.static('public'));
 
 //CONFIG ROTAS
 app.get('/', (req, res) => {
@@ -22,7 +23,6 @@ app.get('*', (req, res) => {
 })
 
 //CONFIG EXPRESS
-app.use(express.static('public'));
 app.listen(porta, () => {
     console.info(`Servidor rodando em: http://localhost:${porta}`);
 });
