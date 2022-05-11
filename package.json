@@ -1,0 +1,22 @@
+{
+  "name": "portaleventos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/othonet/portalEventos.git"
+  },
+  "author": "Othon Felipe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/othonet/portalEventos/issues"
+  },
+  "homepage": "https://github.com/othonet/portalEventos#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
