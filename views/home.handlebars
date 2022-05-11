@@ -1,14 +1,24 @@
 <section>
     <h1>Coberturas</h1>
     <article>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi earum qui nihil quae! Molestias, quos
-        dignissimos consequuntur aut ratione eaque dolor reiciendis. Aliquid error earum atque ut esse, eos neque.
+        {{#if coberturas}}
+            {{#each coberturas}}
+            
+            {{/each}}
+        {{else}}
+            <h4>Ainda não temos coberturas disponível.</h4>
+        {{/if}}
     </article>
 </section>
 <section id="agenda">
     <h1>Agenda Semanal</h1>
-    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, repellat! In cum porro, hic veniam,
-        asperiores atque aliquam ducimus alias libero et vero soluta repudiandae distinctio harum, reprehenderit
-        doloribus placeat?
+    <article>
+        {{#if agenda}}
+            {{#each agenda}}
+                <h3>{{{data}}} | {{{banda}}} - {{{local}}} às {{{horario}}}hrs</h3>
+            {{/each}}
+        {{else}}
+            <h4>Ainda não temos agenda confirmada.</h4>
+        {{/if}}
     </article>
 </section>
