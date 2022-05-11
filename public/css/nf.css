@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+    --color-primary: #00FF94;
+    --color-secondary: #E2E2E2;
+    --color-light: #FFFFFF;
+    --color-dark: #272727;
+    --color-blocked: #404040;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+html, body{
+    color: var(--color-blocked);
+    background-color: var(--color-dark);
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container > section{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container > section > h1{
+    font-size: 60px;
+}
+
+.container > section > a{
+    width: 300px;
+    height: 40px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    border: 1px solid var(--color-blocked);
+    border-radius: 30px;
+
+    color: var(--color-blocked);
+    transition: all ease-in-out .3s; 
+}
+
+.container > section > a:hover{
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}

@@ -4,7 +4,7 @@
     --color-primary: #00FF94;
     --color-secondary: #E2E2E2;
     --color-light: #FFFFFF;
-    --color-dark: #2b2b2b;
+    --color-dark: #272727;
     --color-blue: #0088ff;
 }
 
@@ -44,7 +44,9 @@ body::-webkit-scrollbar-thumb {
     /* roundness of the scroll thumb */
     border: 5px solid var(--color-dark);
     /* creates padding around scroll thumb */
-} /* SCROLLBAR FIM */
+}
+
+/* SCROLLBAR FIM */
 
 .container {
     width: 100%;
@@ -94,6 +96,10 @@ body::-webkit-scrollbar-thumb {
 
 .container>header>section:first-child>div:first-child>h1 {
     text-align: center;
+}
+
+.container>header>section:first-child>div:first-child>h1>a {
+    text-decoration: none;
     font-size: 40px;
     color: var(--color-primary);
 }
@@ -151,6 +157,7 @@ body::-webkit-scrollbar-thumb {
     text-transform: uppercase;
 }
 
+/* MAIN */
 .container>main {
     width: 100%;
     padding: 100px;
@@ -163,8 +170,9 @@ body::-webkit-scrollbar-thumb {
 
 .contianer>main>section:first-child {
     width: 60%;
-}
+} /* MAIN */
 
+/* SIDEBAR */
 .container>main>aside {
     width: 40%;
 }
@@ -189,7 +197,7 @@ body::-webkit-scrollbar-thumb {
     top: 0;
     left: 0;
     background-color: var(--color-secondary);
-}
+} /* SIDEBAR */
 
 /* HomePage */
 .container>main>section>section>h1 {
@@ -237,8 +245,42 @@ body::-webkit-scrollbar-thumb {
     background-color: var(--color-secondary);
 } /* END HomePage */
 
+/* Fale Conosco Page */
+#contato > article > form{
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+#contato > article > form > input, select, textarea{
+    height: 40px;
+    margin: 10px 0;
+    padding: 5px 20px;
+
+    border-radius: 4px;
+    border: none;
+
+    color: var(--color-primary);
+    background-color: #E2E2E211;
+}
+
+#contato > article > form > button{
+    height: 40px;
+    border-radius: 30px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+#contato > article > form > button:hover{
+    opacity: .5;
+}
+
 /* PUBLICIDADE MAIOR */
-.container > section{
+.container>section {
     position: relative;
     width: 100%;
     height: 300px;
@@ -251,13 +293,13 @@ body::-webkit-scrollbar-thumb {
     z-index: 1;
 }
 
-.container > section::before{
+.container>section::before {
     position: absolute;
     content: "";
     width: 100%;
     height: 300px;
     top: 0;
-    background: url('../assets/party_bg.webp');
+    background: url('../assets/spotlight_bg.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -265,7 +307,7 @@ body::-webkit-scrollbar-thumb {
     opacity: .3;
 }
 
-.container > section > article{
+.container>section>article {
     width: 80%;
     height: 180px;
 
@@ -278,16 +320,22 @@ body::-webkit-scrollbar-thumb {
 
     background-color: var(--color-dark);
     box-shadow: 0px 3px 16px 10px #33333366;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
 }
 
-.container > section > article > h1{
+.container>section>article:hover {
+    opacity: .9;
+}
+
+.container>section>article>h1 {
     font-size: 40px;
     font-weight: 200;
     text-transform: uppercase;
     color: var(--color-primary);
 } /* END PUBLICIDADE MAIOR */
 
-.container > footer{
+.container>footer {
     width: 100%;
     height: 60px;
 
@@ -302,15 +350,15 @@ body::-webkit-scrollbar-thumb {
     background-color: var(--color-dark);
 }
 
-.container > footer > div:last-child > span{
+.container>footer>div:last-child>span {
     color: red;
 }
 
-.container > footer > div:last-child > a{
+.container>footer>div:last-child>a {
     text-decoration: none;
     color: var(--color-primary);
 }
 
-.container > footer > div:last-child > a:hover{
+.container>footer>div:last-child>a:hover {
     opacity: .5;
 }

@@ -1,0 +1,22 @@
+<section id="contato">
+    <h1>Fale Conosco</h1>
+    <article>
+        <address>
+            <p>📍 Rua: Foz do Areia, N: 36, Qd: 01</p>
+            <p>📍 Bairro: São Francisco</p>
+            <p>📍 Sobradinho - BA</p>
+        </address>
+        <form action="/send_contact" method="post">
+            <input type="text" name="nome" placeholder="Digite seu nome">
+            <input type="email" name="email" id="email" placeholder="Digite seu email">
+            <select name="motivo" id="motivo">
+                <option value="" selected>- Selecione o motivo do contato -</option>
+                <option value="">Tenho uma crítica e/o sugestão</option>
+                <option value="">Desejo anunciar no site</option>
+                <option value="">Desejo contratar o portal</option>
+            </select>
+            <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Digite sua mensagem aqui..."></textarea>
+            <button type="submit">Enviar contato</button>
+        </form>
+    </article>
+</section>
