@@ -1,9 +1,13 @@
 <section>
-    <h1>Coberturas</h1>
-    <article>
+    <h1>Últimas Coberturas</h1>
+    <article id="coberturas">
         {{#if coberturas}}
             {{#each coberturas}}
-            
+            <div class="eventSingle">
+                <img src="../assets/coberturas/{{{cover}}}.webp" alt="Capa do álbum">
+                <h2>{{{nomeDoEvento}}}</h2>
+                <a href="#">Conferir</a>
+            </div>
             {{/each}}
         {{else}}
             <h4>Ainda não temos coberturas disponível.</h4>
@@ -11,11 +15,20 @@
     </article>
 </section>
 <section id="agenda">
-    <h1>Agenda Semanal</h1>
+    <h1>Agenda Cultural</h1>
     <article>
         {{#if agenda}}
             {{#each agenda}}
-                <h3>{{{data}}} | {{{banda}}} - {{{local}}} às {{{horario}}}hrs</h3>
+                <section>
+                    <section>
+                        <div>{{{dia}}}</div>
+                        <div>{{{mes}}}</div>
+                    </section>
+                    <section>
+                        <div>{{{banda}}}</div>
+                        <div>{{{local}}} às {{{horario}}}h00</div>
+                    </section>
+                </section>
             {{/each}}
         {{else}}
             <h4>Ainda não temos agenda confirmada.</h4>

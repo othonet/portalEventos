@@ -168,39 +168,11 @@ body::-webkit-scrollbar-thumb {
     background-color: var(--color-dark);
 }
 
-.contianer>main>section:first-child {
-    width: 60%;
+.container>main>section{
+    width: 100%;
 } /* MAIN */
 
-/* SIDEBAR */
-.container>main>aside {
-    margin-left: 30px;
-    width: 40%;
-}
-
-.container>main>aside>h1 {
-    position: relative;
-    margin-bottom: 20px;
-    padding-left: 15px;
-
-    font-size: 35px;
-    text-transform: uppercase;
-    background: -webkit-linear-gradient(45deg, #0F9, #08f);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.container>main>aside>h1::before {
-    position: absolute;
-    content: "";
-    width: 6px;
-    height: 40px;
-    top: 0;
-    left: 0;
-    background-color: var(--color-secondary);
-} /* SIDEBAR */
-
-/* HomePage */
+/* Content Page */
 .container>main>section>section>h1 {
     position: relative;
     margin-bottom: 20px;
@@ -222,100 +194,6 @@ body::-webkit-scrollbar-thumb {
     left: 0;
     background-color: var(--color-secondary);
 }
-
-.container>main>section>#agenda{
-    margin-top: 60px;
-}
-
-.container>main>section>#agenda>h1 {
-    position: relative;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding-left: 15px;
-
-    font-size: 35px;
-    text-transform: uppercase;
-    background: -webkit-linear-gradient(45deg, #0F9, #08f);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.container>main>section>#agenda>h1::before {
-    position: absolute;
-    content: "";
-    width: 6px;
-    height: 40px;
-    top: 0;
-    left: 0;
-    background-color: var(--color-secondary);
-} 
-
-.container > main > section > #agenda > article{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-
-.container > main > section > #agenda > article > section {
-    padding: 10px;
-    display: flex;
-
-    border: 2px dashed var(--color-primary);
-    border-radius: 6px;
-}
-
-.container > main > section > #agenda > article > section > section:first-child{
-    width: 100px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border-right: 2px solid #FFFFFF44;
-    padding-right: 10px;
-}
-
-.container > main > section > #agenda > article > section > section:first-child > div:first-child{
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
-    border-bottom: 2px solid var(--color-light);
-    color:  var(--color-primary);
-}
-
-.container > main > section > #agenda > article > section > section:first-child > div:last-child{
-    font-size: 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.container > main > section > #agenda > article > section > section:last-child{
-    width: 100%;
-    padding-left: 10px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.container > main > section > #agenda > article > section > section:last-child > div:first-child{
-    font-size: 30px;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: var(--color-primary);
-}
-
-.container > main > section > #agenda > article > section > section:last-child > div:last-child{
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--color-secondary);
-}
-
 /* END HomePage */
 
 /* Fale Conosco Page */
@@ -346,10 +224,11 @@ body::-webkit-scrollbar-thumb {
     background-color: transparent;
     cursor: pointer;
     transition: all .3s ease-in-out;
+    opacity: .5;
 }
 
 #contato > article > form > button:hover{
-    opacity: .5;
+    opacity: 1;
 }
 
 /* PUBLICIDADE MAIOR */
@@ -401,32 +280,6 @@ body::-webkit-scrollbar-thumb {
     opacity: .9;
 }
 
-.container > .AnunWithoutSideBar{
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.container>section>.anun_3x {
-    width: calc(100%/4);
-    height: 180px;
-
-    border: 1px solid var(--color-dark);
-    border-radius: 6px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: var(--color-dark);
-    box-shadow: 0px 3px 16px 10px #33333366;
-    cursor: pointer;
-    transition: all ease-in-out .3s;
-}
-
-.container>section>.anun_3x:hover {
-    opacity: .9;
-}
-
 .container>section>article>h1 {
     font-size: 40px;
     font-weight: 200;
@@ -443,10 +296,10 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-around;
 
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 400;
 
-    color: var(--color-secondary);
-    background-color: var(--color-dark);
+    color: var(--color-dark);
+    background-color: var(--color-primary);
 }
 
 .container>footer>div:last-child>span {
@@ -455,86 +308,9 @@ body::-webkit-scrollbar-thumb {
 
 .container>footer>div:last-child>a {
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--color-dark);
 }
 
 .container>footer>div:last-child>a:hover {
     opacity: .5;
-}
-
-article .anun_3x{
-    width: 200px;
-}
-
-.container > main > section > section > #coberturas{
-    display: flex;
-    gap: 10px;
-}
-
-.container > main > section > section > #coberturas > .eventSingle{
-    position: relative;
-    width: 200px;
-    height: 280px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.container > main > section > section > #coberturas > .eventSingle::after{
-  position: absolute;
-  content: "";
-  width: 200px;
-  height: 200px;
-  bottom: 0;
-  left: 0;
-  
-  background: linear-gradient(transparent, #00FF94);
-  opacity: 1;
-  z-index: 1;
-}
-
-.container > main > section > section > #coberturas > .eventSingle > h2{
-    position: absolute;
-    bottom: 50px;
-
-    font-size: 20px;
-    font-weight: 500;
-    text-align: center;
-    text-transform: uppercase;
-    color: #11111199;
-    z-index: 2;
-
-}
-
-.container > main > section > section > #coberturas > .eventSingle > a{
-    position: absolute;
-    bottom: 20px;
-    padding: 3px 10px;
-    border-radius: 20px;
-    
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: var(--color-primary);
-
-    background: var(--color-dark);
-    z-index: 2;
-    transition: all ease-in-out .3s;
-}
-
-.container > main > section > section > #coberturas > .eventSingle > a:hover{
-    opacity: .7;
-}
-
-.container > main > section > section > #coberturas > .eventSingle > img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }

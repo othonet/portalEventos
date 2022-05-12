@@ -17,11 +17,18 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.render('home', {
         title: 'HomePage',
-        coberturas: [],
+        coberturas: [
+            {id: 1, nomeDoEvento: 'Cobertura 1', data: '10/mai', cover: 'cover1'},
+            {id: 2, nomeDoEvento: 'Cobertura 2', data: '11/mai', cover: 'cover2'},
+            {id: 3, nomeDoEvento: 'Cobertura 3', data: '12/mai', cover: 'cover3'},
+            {id: 4, nomeDoEvento: 'Cobertura 4', data: '13/mai', cover: 'cover4'},
+            {id: 4, nomeDoEvento: 'Cobertura 5', data: '13/mai', cover: 'cover5'},
+        ],
         agenda: [
-                {id: 1, banda: 'Cairo Silva', local: 'Adega ZeroOnze', data: '10/01', horario: 21},
-                {id: 2, banda: 'Laura Moral', local: 'Boteco JL', data: '11/01', horario: 19},
-                {id: 3, banda: 'Mislane Silva', local: 'Âncora do rio', data: '12/01', horario: 13},
+                {id: 1, banda: 'Cairo Silva', local: 'Adega ZeroOnze', dia: '10', mes: 'mai', horario: 21},
+                {id: 2, banda: 'Laura Moral', local: 'Boteco JL', dia: '11', mes: 'mai', horario: 19},
+                {id: 3, banda: 'Mislane Silva', local: 'Âncora do rio', dia: '12', mes: 'mai', horario: 13},
+                {id: 4, banda: 'Swing do Cafa', local: 'Âncora do rio', dia: '13', mes: 'mai', horario: 17},
         ]
     });
 });
@@ -41,7 +48,8 @@ app.get('/coberturas', (req, res) => {
 
 app.get('/faleconosco', (req, res) => {
     res.render('faleconosco', {
-        title: 'Fale Conosco'
+        title: 'Fale Conosco',
+        layout: 'faleconosco'
     });
 });
 
