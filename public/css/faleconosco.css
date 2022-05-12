@@ -22,7 +22,7 @@ body {
     width: 100%;
 
     color: var(--color-light);
-    background: linear-gradient(-35deg, #3C6554, #262626) no-repeat;
+    background: linear-gradient(-35deg, #00ff955e, #262626) no-repeat;
     scroll-behavior: smooth;
 }
 

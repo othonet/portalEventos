@@ -22,7 +22,7 @@ body {
     width: 100%;
 
     color: var(--color-light);
-    background: linear-gradient(-35deg, #3C6554, #262626) no-repeat;
+    background: linear-gradient(-35deg, #00ff955e, #262626) no-repeat;
     scroll-behavior: smooth;
 }
 
@@ -76,7 +76,7 @@ body::-webkit-scrollbar-thumb {
     background-position: center;
     background-size: cover;
 
-    opacity: .3;
+    opacity: .1;
     z-index: -1000;
 }
 
@@ -155,6 +155,190 @@ body::-webkit-scrollbar-thumb {
     font-size: 35px;
     font-weight: 200;
     text-transform: uppercase;
+}
+
+.container > main{
+    width: 100%;
+    display: flex;
+}
+
+.container > main > section{
+    width: 100%;
+}
+
+/* COBERTURAS PAGE */
+.container > main > section > #containerCoberturas{
+    width: 100%;
+}
+
+.container > main > section > #containerCoberturas > article{
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container > main > section > #containerCoberturas > article > .cobertura{
+    position: relative;
+    width: 300px;
+    height: 450px;
+
+    display: flex;
+    justify-content: center;
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.container > main > section > #containerCoberturas > article > .cobertura::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 280px;
+    bottom: 0;
+
+    background: linear-gradient(transparent, #00FF94);
+    z-index: 1;
+}
+
+
+.container > main > section > #containerCoberturas > article > .cobertura > h2{
+    position: absolute;
+    bottom: 20px;
+
+    font-size: 25px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    z-index: 2;
+}
+
+.container > main > section > #containerCoberturas > article > .cobertura > img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.container > main > section > #containerCoberturas > .pagination{
+    margin-top: 30px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container > main > section > #containerCoberturas > section > ul{
+    width: 500px;
+    height: 40px;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container > main > section > #containerCoberturas > section > ul > li{
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+
+    color: var(--color-primary);
+}
+
+
+/* HOME PAGE */
+.container > main > section > section > #coberturas{
+    display: flex;
+    gap: 10px;
+}
+
+.container > main > section > section > #coberturas > .eventSingle{
+    position: relative;
+    width: 200px;
+    height: 280px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .3s all ease-in-out;
+}
+
+.container > main > section > section > #coberturas > .eventSingle > img{
+    filter: grayscale(100%);
+    transition: all ease-in-out .3s;
+}
+
+.container > main > section > section > #coberturas > .eventSingle::after{
+  position: absolute;
+  content: "";
+  width: 200px;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+  
+  background: linear-gradient(transparent, #00FF94);
+  opacity: 1;
+  z-index: 1;
+  transition: .3s all ease-in-out;
+}
+
+
+.container > main > section > section > #coberturas > .eventSingle:hover > img {
+    transition: .3s all ease-in-out;
+    transform: rotate(-6deg) scale(1.2);
+    filter: blur(1px) grayscale(0%);
+}
+
+
+.container > main > section > section > #coberturas > .eventSingle > h2{
+    position: absolute;
+    bottom: 50px;
+
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    z-index: 2;
+}
+
+.container > main > section > section > #coberturas > .eventSingle > a{
+    position: absolute;
+    bottom: 20px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--color-primary);
+
+    background: var(--color-dark);
+    z-index: 2;
+    transition: all ease-in-out .3s;
+}
+
+.container > main > section > section > #coberturas > .eventSingle > a:hover{
+    opacity: .7;
+}
+
+.container > main > section > section > #coberturas > .eventSingle > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* MAIN */
@@ -261,7 +445,7 @@ body::-webkit-scrollbar-thumb {
     padding: 10px;
     display: flex;
 
-    border: 2px dashed var(--color-primary);
+    border: 2px dashed var(--color-secondary);
     border-radius: 6px;
 }
 
@@ -289,6 +473,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 25px;
     font-weight: bold;
     text-transform: uppercase;
+    color: var(--color-secondary);
 }
 
 .container > main > section > #agenda > article > section > section:last-child{
@@ -464,77 +649,4 @@ body::-webkit-scrollbar-thumb {
 
 article .anun_3x{
     width: 200px;
-}
-
-.container > main > section > section > #coberturas{
-    display: flex;
-    gap: 10px;
-}
-
-.container > main > section > section > #coberturas > .eventSingle{
-    position: relative;
-    width: 200px;
-    height: 280px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.container > main > section > section > #coberturas > .eventSingle::after{
-  position: absolute;
-  content: "";
-  width: 200px;
-  height: 200px;
-  bottom: 0;
-  left: 0;
-  
-  background: linear-gradient(transparent, #00FF94);
-  opacity: 1;
-  z-index: 1;
-}
-
-.container > main > section > section > #coberturas > .eventSingle > h2{
-    position: absolute;
-    bottom: 50px;
-
-    font-size: 20px;
-    font-weight: 500;
-    text-align: center;
-    text-transform: uppercase;
-    color: #11111199;
-    z-index: 2;
-
-}
-
-.container > main > section > section > #coberturas > .eventSingle > a{
-    position: absolute;
-    bottom: 20px;
-    padding: 3px 10px;
-    border-radius: 20px;
-    
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: var(--color-primary);
-
-    background: var(--color-dark);
-    z-index: 2;
-    transition: all ease-in-out .3s;
-}
-
-.container > main > section > section > #coberturas > .eventSingle > a:hover{
-    opacity: .7;
-}
-
-.container > main > section > section > #coberturas > .eventSingle > img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }

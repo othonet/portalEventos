@@ -53,15 +53,16 @@ app.get('/faleconosco', (req, res) => {
     });
 });
 
-app.get('*', (req, res) => {
-    res.render('nf', {
-        title: 'Página não encontrada',
-        layout: 'nf'
-    })
-})
-
 app.post('/send_contact', (req, res) => {
     res.send('Contato enviado com sucesso!');
+});
+
+//ROTA 404
+app.use((req, res) => {
+    res.status(404).render('nf', {
+        title: 'Página não encontrada',
+        layout: 'nf'
+    });
 })
 
 //CONFIG EXPRESS
