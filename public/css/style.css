@@ -261,7 +261,7 @@ body::-webkit-scrollbar-thumb {
 /* HOME PAGE */
 .container > main > section > section > #coberturas{
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
 }
 
 .container > main > section > section > #coberturas > .eventSingle{

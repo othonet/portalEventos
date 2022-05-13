@@ -13,23 +13,27 @@ app.engine('handlebars', handlebars.engine({
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
+// CONTEÚDOS
+const coberturas = [
+    {id: 1, nomeDoEvento: 'Cobertura 1', data: '10/mai', cover: 'cover1'},
+    {id: 2, nomeDoEvento: 'Cobertura 2', data: '11/mai', cover: 'cover2'},
+    {id: 3, nomeDoEvento: 'Cobertura 3', data: '12/mai', cover: 'cover3'},
+    {id: 4, nomeDoEvento: 'Cobertura 4', data: '13/mai', cover: 'cover4'},
+];
+
+const agenda = [
+    {id: 1, banda: 'Cairo Silva', local: 'Adega ZeroOnze', dia: '10', mes: 'mai', horario: 21},
+    {id: 2, banda: 'Laura Moral', local: 'Boteco JL', dia: '11', mes: 'mai', horario: 19},
+    {id: 3, banda: 'Mislane Silva', local: 'Âncora do rio', dia: '12', mes: 'mai', horario: 13},
+    {id: 4, banda: 'Swing do Cafa', local: 'Âncora do rio', dia: '13', mes: 'mai', horario: 17},
+];
+
 //CONFIG ROTAS
 app.get('/', (req, res) => {
     res.render('home', {
         title: 'HomePage',
-        coberturas: [
-            {id: 1, nomeDoEvento: 'Cobertura 1', data: '10/mai', cover: 'cover1'},
-            {id: 2, nomeDoEvento: 'Cobertura 2', data: '11/mai', cover: 'cover2'},
-            {id: 3, nomeDoEvento: 'Cobertura 3', data: '12/mai', cover: 'cover3'},
-            {id: 4, nomeDoEvento: 'Cobertura 4', data: '13/mai', cover: 'cover4'},
-            {id: 4, nomeDoEvento: 'Cobertura 5', data: '13/mai', cover: 'cover5'},
-        ],
-        agenda: [
-                {id: 1, banda: 'Cairo Silva', local: 'Adega ZeroOnze', dia: '10', mes: 'mai', horario: 21},
-                {id: 2, banda: 'Laura Moral', local: 'Boteco JL', dia: '11', mes: 'mai', horario: 19},
-                {id: 3, banda: 'Mislane Silva', local: 'Âncora do rio', dia: '12', mes: 'mai', horario: 13},
-                {id: 4, banda: 'Swing do Cafa', local: 'Âncora do rio', dia: '13', mes: 'mai', horario: 17},
-        ]
+        coberturas: coberturas,
+        agenda: agenda
     });
 });
 
@@ -42,6 +46,7 @@ app.get('/sobre', (req, res) => {
 app.get('/coberturas', (req, res) => {
     res.render('coberturas', {
         title: 'Coberturas',
+        coberturas: coberturas,
         layout: 'mainWithoutSideBar'
     });
 });

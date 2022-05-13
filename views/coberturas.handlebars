@@ -1,22 +1,16 @@
 <section id="containerCoberturas">
     <h1>Coberturas</h1>
     <article>
-        <div class="cobertura">
-            <img src="../assets/coberturas/cover1.webp" alt="Capa do álbum">
-            <h2>Cobertura 1</h2>
-        </div>
-        <div class="cobertura">
-            <img src="../assets/coberturas/cover1.webp" alt="Capa do álbum">
-            <h2>Cobertura 2</h2>
-        </div>
-        <div class="cobertura">
-            <img src="../assets/coberturas/cover1.webp" alt="Capa do álbum">
-            <h2>Cobertura 3</h2>
-        </div>
-        <div class="cobertura">
-            <img src="../assets/coberturas/cover1.webp" alt="Capa do álbum">
-            <h2>Cobertura 4</h2>
-        </div>
+        {{#if coberturas}}
+            {{#each coberturas}}
+                <div class="cobertura">
+                    <img src="../assets/coberturas/{{{cover}}}.webp" alt="{{{nomeDoEvento}}}">
+                    <h2>{{{nomeDoEvento}}}</h2>
+                </div>    
+            {{/each}}
+        {{else}}
+            <span>Ainda não temos coberturas disponíveis.</span>
+        {{/if}}
     </article>
     <section class="pagination">
         <ul>
