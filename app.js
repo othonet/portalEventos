@@ -5,18 +5,19 @@ const handlebars = require('express-handlebars');
 const session = require('express-session');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
-const urlencoded = require('body-parser/lib/types/urlencoded');
-const porta = 3000;
 
 //CONFIG´s
+    //Porta do servidor
+    const porta = 3000;
+
     //Handlebars
-        app.engine('handlebars', handlebars.engine({
-            defaultLayout: 'main', runtimeOptions: {
-                allowProtoPropertiesByDefault: true,
-                allowProtoMethodsByDefault: true
-            }
-        }));
-        app.set('view engine', 'handlebars');
+    app.engine('handlebars', handlebars.engine({
+        defaultLayout: 'main', runtimeOptions: {
+            allowProtoPropertiesByDefault: true,
+            allowProtoMethodsByDefault: true
+        }
+    }));
+    app.set('view engine', 'handlebars');
 
     //BodyParser
     app.use(bodyParser.urlencoded({extended: false}));
