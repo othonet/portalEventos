@@ -76,7 +76,7 @@ body::-webkit-scrollbar-thumb {
     background-position: center;
     background-size: cover;
 
-    opacity: .3;
+    opacity: .1;
     z-index: -1000;
 }
 
@@ -96,11 +96,16 @@ body::-webkit-scrollbar-thumb {
 
 .container>header>section:first-child>div:first-child>h1 {
     text-align: center;
+    text-transform: uppercase;
 }
 
 .container>header>section:first-child>div:first-child>h1>a {
     text-decoration: none;
     font-size: 40px;
+    color: var(--color-light);
+}
+
+.container>header>section:first-child>div:first-child>h1>a > span {
     color: var(--color-primary);
 }
 
