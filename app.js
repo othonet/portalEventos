@@ -4,6 +4,7 @@ const app = express();
 const handlebars = require('express-handlebars');
 const session = require('express-session');
 const flash = require('connect-flash');
+const bodyParser = require('body-parser');
 const porta = 3000;
 
 //CONFIG´s
@@ -26,8 +27,9 @@ const porta = 3000;
 
         //Middleware
         app.use((req, res, next) => {
-            res.locals.success_msg = req.flash('success_msg');
-            res.locals.error_msg = req.flash('error_msg');
+            res.locals.user_logged = req.flash('user_logged');
+            res.locals.user_unlogged = req.flash('user_unlogged');
+            next();
         });
 
     //Arquivos estáticos
@@ -47,6 +49,8 @@ const agenda = [
     {id: 3, banda: 'Mislane Silva', local: 'Âncora do rio', dia: '12', mes: 'mai', horario: 13},
     {id: 4, banda: 'Swing do Cafa', local: 'Âncora do rio', dia: '13', mes: 'mai', horario: 17},
 ];
+
+const userAuthenticated = true;
 
 //ROTAS
     //GET
@@ -80,8 +84,12 @@ const agenda = [
     }); // PÁGINA FALE CONOSCO
 
     app.get('/shazam', (req, res) => {
-        
+        userAuthenticated ? res.render('admin') : res.redirect('/login');
     });
+
+    app.get('/login', (req, res) => {
+        userAuthenticated ? res.redirect('shazam') : res.render('login', { title: 'Autenticação'});
+    })
 
     //POST
     app.post('/send_contact', (req, res) => {

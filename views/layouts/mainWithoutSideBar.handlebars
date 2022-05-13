@@ -11,57 +11,14 @@
 
 <body>
     <div class="container">
-        <header>
-            <section>
-                <div>
-                    <h1>
-                        <a href="/">Portal <span>A3</span></a>
-                    </h1>
-                </div>
-                <div>
-                    <nav>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/sobre">Sobre</a></li>
-                            <li><a href="/coberturas">Coberturas</a></li>
-                            <li><a href="/faleconosco">Fale Conosco</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <h1>Portal de <span>eventos</span></h1>
-                </div>
-                <div>
-                    <h3>Seu portal de entretenimento</h3>
-                </div>
-            </section>
-        </header>
+        {{>_header}}
         <main>
             <section>
                 {{{body}}}
             </section>
         </main>
-        <section class="AnunWithoutSideBar">
-            <article class="anun_3x">
-                <h1>Anuncie aqui</h1>
-            </article>
-            <article class="anun_3x">
-                <h1>Anuncie aqui</h1>
-            </article>
-            <article class="anun_3x">
-                <h1>Anuncie aqui</h1>
-            </article>
-        </section>
-        <footer>
-            <div>
-                Todos os direitos reservados - Portal de eventos
-            </div>
-            <div>
-                Maked with <span>♥</span> by <a href="#">Othon Felipe</a>
-            </div>
-        </footer>
+        {{>_anuncioTriplo}}
+        {{>_footer}}
     </div>
 
     <script src="js/script.js"></script>
