@@ -5,6 +5,7 @@ const handlebars = require('express-handlebars');
 const session = require('express-session');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
+const urlencoded = require('body-parser/lib/types/urlencoded');
 const porta = 3000;
 
 //CONFIG´s
@@ -17,20 +18,24 @@ const porta = 3000;
         }));
         app.set('view engine', 'handlebars');
 
-        //Sessões
-        app.use(session({
-            secret: 'qualquerCoisaSegura',
-            resave: true,
-            saveUninitialized: true
-        }));
-        app.use(flash());
+    //BodyParser
+    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(bodyParser.json());
 
-        //Middleware
-        app.use((req, res, next) => {
-            res.locals.user_logged = req.flash('user_logged');
-            res.locals.user_unlogged = req.flash('user_unlogged');
-            next();
-        });
+    //Sessões
+    app.use(session({
+        secret: 'qualquerCoisaSegura',
+        resave: true,
+        saveUninitialized: true
+    }));
+    app.use(flash());
+
+    //Middleware
+    app.use((req, res, next) => {
+        res.locals.user_logged = req.flash('user_logged');
+        res.locals.user_unlogged = req.flash('user_unlogged');
+        next();
+    });
 
     //Arquivos estáticos
         app.use(express.static('public'));
