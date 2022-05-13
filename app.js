@@ -38,7 +38,7 @@ const porta = 3000;
     });
 
     //Arquivos estáticos
-        app.use(express.static('public'));
+     app.use(express.static('public'));
 
 // CONTEÚDOS FICTÍCIOS
 const coberturas = [
@@ -55,7 +55,7 @@ const agenda = [
     {id: 4, banda: 'Swing do Cafa', local: 'Âncora do rio', dia: '13', mes: 'mai', horario: 17},
 ];
 
-const userAuthenticated = true;
+const userAuthenticated = false;
 
 //ROTAS
     //GET
@@ -98,7 +98,19 @@ const userAuthenticated = true;
 
     //POST
     app.post('/send_contact', (req, res) => {
-        res.send('Contato enviado com sucesso!');
+        const campos = {
+            nome: req.body.nome,
+            email: req.body.email,
+            motivo: req.body.motivo,
+            mensagem: req.body.mensagem
+        };
+        const { nome, email, motivo, mensagem } = campos;
+        
+        if(nome !== "" && email !== "" && motivo !== "" && mensagem !== ""){
+            res.json(campos);
+        }else{
+            res.send('Há campos vazio no formulário');
+        }
     });
 
     //404
