@@ -3,17 +3,20 @@ const app = express();
 const handlebars = require('express-handlebars');
 const porta = 3000;
 
-//CONFIG HANDLEBARS
-app.engine('handlebars', handlebars.engine({
-    defaultLayout: 'main', runtimeOptions: {
-        allowProtoPropertiesByDefault: true,
-        allowProtoMethodsByDefault: true
-    }
-}));
-app.set('view engine', 'handlebars');
-app.use(express.static('public'));
+//CONFIG´s
+    //Handlebars
+        app.engine('handlebars', handlebars.engine({
+            defaultLayout: 'main', runtimeOptions: {
+                allowProtoPropertiesByDefault: true,
+                allowProtoMethodsByDefault: true
+            }
+        }));
+        app.set('view engine', 'handlebars');
 
-// CONTEÚDOS
+    //Arquivos estáticos
+        app.use(express.static('public'));
+
+// CONTEÚDOS FICTÍCIOS
 const coberturas = [
     {id: 1, nomeDoEvento: 'Cobertura 1', data: '10/mai', cover: 'cover1'},
     {id: 2, nomeDoEvento: 'Cobertura 2', data: '11/mai', cover: 'cover2'},
@@ -28,47 +31,53 @@ const agenda = [
     {id: 4, banda: 'Swing do Cafa', local: 'Âncora do rio', dia: '13', mes: 'mai', horario: 17},
 ];
 
-//CONFIG ROTAS
-app.get('/', (req, res) => {
-    res.render('home', {
-        title: 'HomePage',
-        coberturas: coberturas,
-        agenda: agenda
-    });
-});
+//ROTAS
+    //GET
+    app.get('/', (req, res) => {
+        res.render('home', {
+            title: 'HomePage',
+            coberturas: coberturas,
+            agenda: agenda
+        });
+    }); // HOMEPAGE
 
-app.get('/sobre', (req, res) => {
-    res.render('sobre', {
-        title: 'Sobre'
-    });
-});
+    app.get('/sobre', (req, res) => {
+        res.render('sobre', {
+            title: 'Sobre'
+        });
+    }); // PÁGINA SOBRE
 
-app.get('/coberturas', (req, res) => {
-    res.render('coberturas', {
-        title: 'Coberturas',
-        coberturas: coberturas,
-        layout: 'mainWithoutSideBar'
-    });
-});
+    app.get('/coberturas', (req, res) => {
+        res.render('coberturas', {
+            title: 'Coberturas',
+            coberturas: coberturas,
+            layout: 'mainWithoutSideBar'
+        });
+    }); // PÁGINA COBERTURA
 
-app.get('/faleconosco', (req, res) => {
-    res.render('faleconosco', {
-        title: 'Fale Conosco',
-        layout: 'faleconosco'
-    });
-});
+    app.get('/faleconosco', (req, res) => {
+        res.render('faleconosco', {
+            title: 'Fale Conosco',
+            layout: 'faleconosco'
+        });
+    }); // PÁGINA FALE CONOSCO
 
-app.post('/send_contact', (req, res) => {
-    res.send('Contato enviado com sucesso!');
-});
-
-//ROTA 404
-app.use((req, res) => {
-    res.status(404).render('nf', {
-        title: 'Página não encontrada',
-        layout: 'nf'
+    app.get('/shazam', (req, res) => {
+        
     });
-})
+
+    //POST
+    app.post('/send_contact', (req, res) => {
+        res.send('Contato enviado com sucesso!');
+    });
+
+    //404
+    app.use((req, res) => {
+        res.status(404).render('nf', {
+            title: 'Página não encontrada',
+            layout: 'nf'
+        });
+    })  //ROTA 404
 
 //CONFIG EXPRESS
 app.listen(porta, () => {
