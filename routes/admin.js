@@ -44,16 +44,6 @@ router.get('/agenda', (req, res) => {
     });
 })
 
-router.get('/coberturas', (req, res) => {
-    Cobertura.find().then(() => {
-        res.render('./admin/coberturas', {
-            layout: 'painelAdmin'
-        })
-    }).catch(err => {
-        res.send('Não encontramos nenhuma cobertura no momento.')
-    })
-})
-
 router.get('/addCobertura', (req, res) => {
     res.render('./admin/addCobertura', {
         title: 'Add Cobertura',
@@ -84,10 +74,10 @@ router.get('/suporte', (req, res) => {
 router.post('/add/cobertura', (req, res) => {
     const novaCobertura = {
         nomeCobertura: req.body.nome,
-        subtitulo: req.body.subtitulo,
+        subtituloCobertura: req.body.subtitulo,
         dataCobertura: req.body.data,
     }
-    const { nomeCobertura, subtitulo, dataCobertura } = novaCobertura;
+    const { nomeCobertura, subtituloCobertura, dataCobertura } = novaCobertura;
 
     if (!nomeCobertura || nomeCobertura == undefined || nomeCobertura == null) {
         req.flash('errorMsg', 'Campos inválidos. Por favor, preencha todos os campos corretamente.');
@@ -95,7 +85,7 @@ router.post('/add/cobertura', (req, res) => {
     } else if (!dataCobertura || dataCobertura == undefined || dataCobertura == null) {
         req.flash('errorMsg', 'Campos inválidos. Por favor, preencha todos os campos corretamente.');
         res.redirect('/admin/addCobertura');
-    } else if (!subtitulo || subtitulo == undefined || subtitulo == null) {
+    } else if (!subtituloCobertura || subtituloCobertura == undefined || subtituloCobertura == null) {
         req.flash('errorMsg', 'Campos inválidos. Por favor, preencha todos os campos corretamente.');
         res.redirect('/admin/addCobertura');
     } else {

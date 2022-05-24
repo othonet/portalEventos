@@ -14,15 +14,13 @@ route.get('/', async (req, res) => {
         title: 'HomePage',
         coberturas: await coberturasAll,
         agenda: (await agendaAll).map((item) => {
-            const dia = item.dataHorarioApresentacao.getDay().toString() < 9 ? '0' + item.dataHorarioApresentacao.getDay().toString() : item.dataHorarioApresentacao.getDay().toString();
+            const dia = item.dataHorarioApresentacao.getDate().toString() < 9 ? '0' + item.dataHorarioApresentacao.getDate().toString() : item.dataHorarioApresentacao.getDate().toString();
             const hora = item.dataHorarioApresentacao.getHours() < 9 ? '0' + item.dataHorarioApresentacao.getHours() : item.dataHorarioApresentacao.getHours();
-            const minuto = item.dataHorarioApresentacao.getMinutes() < 9 ? '0' + item.dataHorarioApresentacao.getMinutes() : item.dataHorarioApresentacao.getMinutes();
-            
             const agenda = {
                 artista: item.artista,
                 dia: dia,
                 mes: mesesAll[item.dataHorarioApresentacao.getMonth()].substring(0,3),
-                horario: hora + 'h' + minuto,
+                horario: hora + 'h',
                 local: item.localApresentacao
             }
             return agenda;
@@ -45,9 +43,11 @@ route.get('/coberturas', async (req, res) => {
         });
 }); // PÁGINA COBERTURA
 
-route.get('/coberturas/:id', async (req, res) => {
+route.get('/coberturas/cobertura/:id', async (req, res) => {
     res.render('cobertura', {
-        id: req.params.id
+        id: req.params.id,
+        title: 'Cobertura',
+        layout: 'main'
     });
 })
 
