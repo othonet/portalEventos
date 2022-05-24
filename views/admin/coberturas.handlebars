@@ -1,0 +1,17 @@
+<section>
+    <h2>Listagem de coberturas</h2>
+        {{#each coberturas}}
+        <table>
+            <thead>
+                <th>Nome da cobertura</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{{nomeCobertura}}}</td>
+                </tr>
+            </tbody>
+        </table>
+        {{else}}
+        Ainda não há coberturas cadastrada.
+        {{/each}}
+</section>

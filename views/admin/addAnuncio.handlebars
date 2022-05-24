@@ -1,0 +1,19 @@
+<section class="form">
+    <h2>Novo anúncio</h2>
+
+    <form action="/admin/add/agenda" method="POST">
+        <label for="cliente">Nome do cliente</label>
+        <input type="text" name="cliente" id="cliente" placeholder="Digite o nome do cliente/empreendimento/evento aqui." required>
+        <br>
+        <label for="dataInicio">Data inicial</label>
+        <input type="date" name="dataInicio" id="dataInicio" required>
+        <br>
+        <label for="dataFinal">Data final</label>
+        <input type="date" name="dataFinal" id="dataFinal" required>
+        <br>
+        <label for="posicao">Posição do banner</label>
+        <input type="text" name="posicao" id="posicao" placeholder="Digite a posição do banner aqui." required>
+        <br>
+        <button type="submit">Add anúncio</button>
+    </form>
+</section>

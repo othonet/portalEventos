@@ -1,14 +1,19 @@
-//MÓDULOS
+//IMPORTAÇÃO DOS MÓDULOS
 const express = require('express');
 const app = express();
+const path = require('path');
 const handlebars = require('express-handlebars');
 const session = require('express-session');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const admin = require('./routes/admin');
+const site = require('./routes/site');
 
 //CONFIG´s
-    //Porta do servidor
-    const porta = 3000;
+    //Servidor
+    const host = 'localhost';
+    const portaServer = 3000;
 
     //Handlebars
     app.engine('handlebars', handlebars.engine({
@@ -23,106 +28,36 @@ const bodyParser = require('body-parser');
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
 
-    //Sessões
+    //Express Session
     app.use(session({
-        secret: 'qualquerCoisaSegura',
+        secret: '07h0nD3v3l0p3r@#',
         resave: true,
         saveUninitialized: true
     }));
     app.use(flash());
 
-    //Middleware
+    //Middleware de sessões globais
     app.use((req, res, next) => {
-        res.locals.user_logged = req.flash('user_logged');
-        res.locals.user_unlogged = req.flash('user_unlogged');
+        res.locals.successMsg = req.flash('successMsg');
+        res.locals.errorMsg = req.flash('errorMsg');
         next();
     });
 
+    //Mongoose
+    mongoose.Promise = global.Promise;
+    mongoose.connect(`mongodb://${host}/portala3`);
+    
     //Arquivos estáticos
-     app.use(express.static('public'));
+        //SITE
+         app.use(express.static(path.join(__dirname, "public")));
+         //ADMIN
+         app.use('/admin', express.static(path.join(__dirname, "public")));
 
-// CONTEÚDOS FICTÍCIOS
-const coberturas = [
-    {id: 1, nomeDoEvento: 'Cobertura 1', data: '10/mai', cover: 'cover1'},
-    {id: 2, nomeDoEvento: 'Cobertura 2', data: '11/mai', cover: 'cover2'},
-    {id: 3, nomeDoEvento: 'Cobertura 3', data: '12/mai', cover: 'cover3'},
-    {id: 4, nomeDoEvento: 'Cobertura 4', data: '13/mai', cover: 'cover4'},
-];
-
-const agenda = [
-    {id: 1, banda: 'Cairo Silva', local: 'Adega ZeroOnze', dia: '10', mes: 'mai', horario: 21},
-    {id: 2, banda: 'Laura Moral', local: 'Boteco JL', dia: '11', mes: 'mai', horario: 19},
-    {id: 3, banda: 'Mislane Silva', local: 'Âncora do rio', dia: '12', mes: 'mai', horario: 13},
-    {id: 4, banda: 'Swing do Cafa', local: 'Âncora do rio', dia: '13', mes: 'mai', horario: 17},
-];
-
-const userAuthenticated = false;
-
-//ROTAS
-    //GET
-    app.get('/', (req, res) => {
-        res.render('home', {
-            title: 'HomePage',
-            coberturas: coberturas,
-            agenda: agenda
-        });
-    }); // HOMEPAGE
-
-    app.get('/sobre', (req, res) => {
-        res.render('sobre', {
-            title: 'Sobre'
-        });
-    }); // PÁGINA SOBRE
-
-    app.get('/coberturas', (req, res) => {
-        res.render('coberturas', {
-            title: 'Coberturas',
-            coberturas: coberturas,
-            layout: 'mainWithoutSideBar'
-        });
-    }); // PÁGINA COBERTURA
-
-    app.get('/faleconosco', (req, res) => {
-        res.render('faleconosco', {
-            title: 'Fale Conosco',
-            layout: 'faleconosco'
-        });
-    }); // PÁGINA FALE CONOSCO
-
-    app.get('/shazam', (req, res) => {
-        userAuthenticated ? res.render('admin') : res.redirect('/login');
-    });
-
-    app.get('/login', (req, res) => {
-        userAuthenticated ? res.redirect('shazam') : res.render('login', { title: 'Autenticação'});
-    })
-
-    //POST
-    app.post('/send_contact', (req, res) => {
-        const campos = {
-            nome: req.body.nome,
-            email: req.body.email,
-            motivo: req.body.motivo,
-            mensagem: req.body.mensagem
-        };
-        const { nome, email, motivo, mensagem } = campos;
-        
-        if(nome !== "" && email !== "" && motivo !== "" && mensagem !== ""){
-            res.json(campos);
-        }else{
-            res.send('Há campos vazio no formulário');
-        }
-    });
-
-    //404
-    app.use((req, res) => {
-        res.status(404).render('nf', {
-            title: 'Página não encontrada',
-            layout: 'nf'
-        });
-    })  //ROTA 404
+//CAMINHO RAÍZ DAS ROTAS
+app.use('/admin', admin); //ROTAS ADMIN
+app.use('/', site); //ROTAS SITE
 
 //CONFIG EXPRESS
-app.listen(porta, () => {
-    console.info(`Servidor rodando em: http://localhost:${porta}`);
+app.listen(portaServer, () => {
+    console.info(`Servidor rodando em: http://${host}:${portaServer}`);
 });

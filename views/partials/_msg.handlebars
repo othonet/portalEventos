@@ -1,0 +1,17 @@
+{{#if successMsg}}
+<div class="msg">
+    <div class="success">
+        <button class='btnClose'>x</button>
+        {{{successMsg}}}
+    </div>
+</div>
+{{/if}}
+
+{{#if errorMsg}}
+<div class="msg">
+    <div class="error">
+        <button class="btnClose">x</button>
+        {{{errorMsg}}}
+    </div>
+</div>
+{{/if}}

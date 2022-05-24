@@ -1,0 +1,16 @@
+<section class="form">
+    <h2>Nova agenda</h2>
+
+    <form action="/admin/add/agenda" method="POST">
+        <label for="atracao">Nome do(a) artista/banda/grupo</label>
+        <input type="text" name="atracao" id="atracao" placeholder="Digite o nome da cobertura aqui." required>
+        <br>
+        <label for="horario">Data/Hora da apresentação</label>
+        <input type="datetime-local" name="dataHoraEvento" id="horario" required>
+        <br>
+        <label for="local">Local da apresentação</label>
+        <input type="text" name="localEvento" id="local" placeholder="Digite o local da apresentação aqui." required>
+        <br>
+        <button type="submit">Add agenda</button>
+    </form>
+</section>

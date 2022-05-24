@@ -1,0 +1,63 @@
+{
+    "coberturas":{
+        "1" : {
+            "id": 1, 
+            "nomeDoEvento": "Cobertura 1", 
+            "data": "10/mai", 
+            "cover": "cover1"
+        },
+        "2" : {
+            "id": 2, 
+            "nomeDoEvento": "Cobertura 2", 
+            "data": "10/mai", 
+            "cover": "cover2"
+        },
+        "3" : {
+            "id": 3, 
+            "nomeDoEvento": "Cobertura 3", 
+            "data": "10/mai", 
+            "cover": "cover3"
+        },
+        "4" : {
+            "id": 4, 
+            "nomeDoEvento": "Cobertura 4", 
+            "data": "10/mai", 
+            "cover": "cover4"
+        }
+    },
+
+    "agenda": {
+        "1":{
+            "id": 1, 
+            "banda": "Cairo Silva", 
+            "local": "Adega ZeroOnze", 
+            "dia": "10", 
+            "mes": "mai", 
+            "horario": 21
+        },
+        "2":{
+            "id": 2, 
+            "banda": "Mislane Silva", 
+            "local": "Âncora do Rio", 
+            "dia": "11", 
+            "mes": "mai", 
+            "horario": 12
+        },
+        "3":{
+            "id": 3, 
+            "banda": "Swing do Cafa", 
+            "local": "Boteco JL", 
+            "dia": "12", 
+            "mes": "mai", 
+            "horario": 19
+        },
+        "4":{
+            "id": 4, 
+            "banda": "Laura Moral", 
+            "local": "Boteco JL", 
+            "dia": "13", 
+            "mes": "mai", 
+            "horario": 20
+        }
+    }
+}

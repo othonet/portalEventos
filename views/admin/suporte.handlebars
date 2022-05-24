@@ -1,0 +1,13 @@
+<section class="form">
+    <h2>Relatar um problema/bug no sistema</h2>
+
+    <form action="/admin/add/suporte" method="POST">
+        <label for="data">Data do chamado</label>
+        <input type="date" name="dataChamado" id="data">
+        <br>
+        <label for="motivo">Motivo/problema</label>
+        <textarea name="motivoChamado" id="motivo" cols="30" rows="10" placeholder="Relate o motivo/problema, com todos os detalhes possíveis..."></textarea>
+        <br>
+        <button type="submit">Solicitar chamado</button>
+    </form>
+</section>
