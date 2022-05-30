@@ -14,8 +14,7 @@ const coberturaSchema = new Schema({
         type: Date,
         default: Date.now()
     },
-    imagens: [{type: mongoose.Schema.Types.ObjectId, ref: 'imagemSchema'}
-    ]
+    imagens: [{ type: mongoose.Schema.Types.ObjectId, ref: 'imagens' }]
 });
 
 const imagemSchema = new Schema({
@@ -23,7 +22,7 @@ const imagemSchema = new Schema({
         type: String,
         require: true
     },
-    cobertura: [{ type: mongoose.Schema.Types.ObjectId, ref: 'coberturaSchema' }]
+    cobertura: [{ type: mongoose.Schema.Types.ObjectId, ref: 'coberturas' }]
 })
 
 module.exports = mongoose.model('coberturas', coberturaSchema);

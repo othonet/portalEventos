@@ -52,6 +52,13 @@ router.get('/addCobertura', (req, res) => {
     });
 })
 
+router.get('/addImagensCobertura', (req, res) => {
+    res.render('./admin/addImagens', {
+        title: 'Add imagens',
+        layout: 'painelAdmin',
+    });
+})
+
 router.get('/addAgenda', (req, res) => {
     res.render('./admin/addAgenda', {
         title: 'Add Agenda',

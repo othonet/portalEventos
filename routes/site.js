@@ -2,6 +2,7 @@ const express = require('express');
 const route = express.Router();
 const Cobertura = require('../models/Cobertura');
 const Agenda = require('../models/Agenda');
+const Imagem = require('../models/Cobertura');
 
 
 //GET
@@ -9,6 +10,14 @@ route.get('/', async (req, res) => {
     const coberturasAll = Cobertura.find().limit(4);
     const agendaAll = Agenda.find().limit(5);
     const mesesAll = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    
+    //Deleção de agendas com datas expiradas
+    Agenda.deleteMany({
+        dataHorarioApresentacao: {
+            $lt: new Date,
+          }
+    }).then(() => {})
+    .catch(err => {console.log('Falha ao deletar agenda expirada.' + err);})
 
     res.render('home', {
         title: 'HomePage',
@@ -19,7 +28,7 @@ route.get('/', async (req, res) => {
             const agenda = {
                 artista: item.artista,
                 dia: dia,
-                mes: mesesAll[item.dataHorarioApresentacao.getMonth()].substring(0,3),
+                mes: mesesAll[item.dataHorarioApresentacao.getMonth()].substring(0, 3),
                 horario: hora + 'h',
                 local: item.localApresentacao
             }
@@ -36,19 +45,24 @@ route.get('/sobre', (req, res) => {
 
 route.get('/coberturas', async (req, res) => {
     const coberturasAll = Cobertura.find().limit(4).sort({ nomeCobertura: 'desc' });
-        res.render('coberturas', {
-            title: 'Coberturas',
-            coberturas: await coberturasAll,
-            layout: 'mainWithoutSideBar'
-        });
+    res.render('./coberturas/coberturas', {
+        title: 'Coberturas',
+        coberturas: await coberturasAll,
+        layout: 'mainWithoutSideBar'
+    });
 }); // PÁGINA COBERTURA
 
-route.get('/coberturas/cobertura/:id', async (req, res) => {
-    res.render('cobertura', {
-        id: req.params.id,
-        title: 'Cobertura',
-        layout: 'main'
-    });
+route.get('/coberturas/:id', async (req, res) => {
+    await Cobertura.findOne({ _id: req.params.id }).then(imagem => {
+        res.json(imagem);
+    }).catch(err => {
+        req.flash('errorMsg', 'Não encontramos imagens para essa cobertura.');
+    })
+    // res.render('cobertura', {
+    //     id: req.params.id,
+    //     title: 'Cobertura',
+    //     layout: 'main'
+    // });
 })
 
 route.get('/faleconosco', (req, res) => {
